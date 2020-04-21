@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/rendering/proxy_box.dart';
 
 class HomeRecentProducts extends StatefulWidget {
   @override
@@ -44,46 +43,78 @@ class _HomeRecentProductsState extends State<HomeRecentProducts> {
       "old_price": 1000,
       "price": 900,
     },
+     {
+      "name": "Jean Five",
+      "picture": "asset/images/jean5.jpg",
+      "old_price": 1200,
+      "price": 215,
+    },
+    {
+      "name": "Jean Six",
+      "picture": "asset/images/jean7.jpg",
+      "old_price": 1000,
+      "price": 900,
+    },
+     {
+      "name": "Jean Five",
+      "picture": "asset/images/jean5.jpg",
+      "old_price": 1200,
+      "price": 215,
+    },
+    {
+      "name": "Jean Six",
+      "picture": "asset/images/jean7.jpg",
+      "old_price": 1000,
+      "price": 900,
+    },
+     {
+      "name": "Jean Five",
+      "picture": "asset/images/jean5.jpg",
+      "old_price": 1200,
+      "price": 215,
+    },
+    {
+      "name": "Jean Six",
+      "picture": "asset/images/jean7.jpg",
+      "old_price": 1000,
+      "price": 900,
+    },
+     {
+      "name": "Jean Five",
+      "picture": "asset/images/jean5.jpg",
+      "old_price": 1200,
+      "price": 215,
+    },
+    {
+      "name": "Jean Six",
+      "picture": "asset/images/jean7.jpg",
+      "old_price": 1000,
+      "price": 900,
+    },
+     {
+      "name": "Jean Five",
+      "picture": "asset/images/jean5.jpg",
+      "old_price": 1200,
+      "price": 215,
+    },
+    {
+      "name": "Jean Six",
+      "picture": "asset/images/jean7.jpg",
+      "old_price": 1000,
+      "price": 900,
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
-    // return Container(
-    //     height: 32.0,
-    //     width: screenWidth,
-    //     child: new GridView(
-    //       gridDelegate:
-    //           new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,
-    //             crossAxisSpacing: 2.0,
-    //           ),
-    //       children: <Widget>[
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //         new Text('Beautiful'),
-    //       ],
-    //     ));
 
-    GridView.builder(
+    return new GridView.builder(
         itemCount: productList.length,
-        gridDelegate:
-            new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, crossAxisSpacing: 2.0),
+        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, crossAxisSpacing: 2.0),
         itemBuilder: (BuildContext context, int index) {
-          Text("This is good");
           return SingleProduct(
             proName: productList[index]['name'],
             proPicture: productList[index]['picture'],
@@ -108,6 +139,37 @@ class SingleProduct extends StatelessWidget {
     final mediaQueryData = MediaQuery.of(context);
     final screenWidth = mediaQueryData.size.width;
 
-    return Container(width: screenWidth, height: 32.0, child: Text("TestHere"));
+    return Card(
+        child: Hero(
+      tag: proName,
+      child: Material(
+          child: InkWell(
+        onTap: () {},
+        child: GridTile(
+            footer: Container(
+              color: Colors.white70,
+              child: ListTile(
+                leading: Text(
+                  proName,
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                title: Text(
+                  "\$$proOldPrice",
+                  style: TextStyle(
+                    color: Colors.pinkAccent,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: Text(
+                  "\$$proOldPrice",
+                  style: TextStyle(
+                      color: Colors.pinkAccent,
+                      decoration: TextDecoration.lineThrough),
+                ),
+              ),
+            ),
+            child: Image.asset(proPicture, fit: BoxFit.cover)),
+      )),
+    ));
   }
 }

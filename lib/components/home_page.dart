@@ -28,10 +28,12 @@ class HomePageContent extends StatelessWidget {
 
         //Recent products here
 
-        new Container(
-         child: new HomeRecentProducts(),
+        Container(
+          height: 320.0,
+         child: HomeRecentProducts(),
         ),
       ],
     );
   }
 }
+
