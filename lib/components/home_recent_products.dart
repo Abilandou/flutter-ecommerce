@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+//My imports
+import 'package:flutter_ecommerce/pages/product_detail.dart';
+
 class HomeRecentProducts extends StatefulWidget {
   @override
   _HomeRecentProductsState createState() => _HomeRecentProductsState();
@@ -43,62 +46,62 @@ class _HomeRecentProductsState extends State<HomeRecentProducts> {
       "old_price": 1000,
       "price": 900,
     },
-     {
-      "name": "Jean Five",
+    {
+      "name": "Jean Seven",
       "picture": "asset/images/jean5.jpg",
       "old_price": 1200,
       "price": 215,
     },
     {
-      "name": "Jean Six",
+      "name": "Jean Eight",
       "picture": "asset/images/jean7.jpg",
       "old_price": 1000,
       "price": 900,
     },
-     {
-      "name": "Jean Five",
+    {
+      "name": "Jean Nine",
       "picture": "asset/images/jean5.jpg",
       "old_price": 1200,
       "price": 215,
     },
     {
-      "name": "Jean Six",
+      "name": "Jean Ten",
       "picture": "asset/images/jean7.jpg",
       "old_price": 1000,
       "price": 900,
     },
-     {
-      "name": "Jean Five",
+    {
+      "name": "Jean Eleven",
       "picture": "asset/images/jean5.jpg",
       "old_price": 1200,
       "price": 215,
     },
     {
-      "name": "Jean Six",
+      "name": "Jean Twelve",
       "picture": "asset/images/jean7.jpg",
       "old_price": 1000,
       "price": 900,
     },
-     {
-      "name": "Jean Five",
+    {
+      "name": "Jean Thirteen",
       "picture": "asset/images/jean5.jpg",
       "old_price": 1200,
       "price": 215,
     },
     {
-      "name": "Jean Six",
+      "name": "Jean Fourteen",
       "picture": "asset/images/jean7.jpg",
       "old_price": 1000,
       "price": 900,
     },
-     {
-      "name": "Jean Five",
+    {
+      "name": "Jean Fifteen",
       "picture": "asset/images/jean5.jpg",
       "old_price": 1200,
       "price": 215,
     },
     {
-      "name": "Jean Six",
+      "name": "Jean Sixteen",
       "picture": "asset/images/jean7.jpg",
       "old_price": 1000,
       "price": 900,
@@ -113,7 +116,7 @@ class _HomeRecentProductsState extends State<HomeRecentProducts> {
     return new GridView.builder(
         itemCount: productList.length,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 4, crossAxisSpacing: 2.0),
+            crossAxisCount: 3, crossAxisSpacing: 2.0),
         itemBuilder: (BuildContext context, int index) {
           return SingleProduct(
             proName: productList[index]['name'],
@@ -144,7 +147,14 @@ class SingleProduct extends StatelessWidget {
       tag: proName,
       child: Material(
           child: InkWell(
-        onTap: () {},
+        onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            //Pass products details as paramenters to productDetailPage
+            builder: (context) => new ProductDetail(
+                  proDetName: proName,
+                  proDetOldPrice: proOldPrice,
+                  proDetPrice: proPrice,
+                  proDetPicture: proPicture,
+                ))),
         child: GridTile(
             footer: Container(
               color: Colors.white70,

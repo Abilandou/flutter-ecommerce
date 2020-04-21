@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class HomeDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class HomeDrawer extends StatelessWidget {
 
           //body
           InkWell(
-            onTap: () {},
+            onTap: (){},
             child: ListTile(
               title: Text("Home Page"),
               leading: Icon(Icons.home),
@@ -61,14 +62,20 @@ class HomeDrawer extends StatelessWidget {
             onTap: () {},
             child: ListTile(
               title: Text("Settings"),
-              leading: Icon(Icons.settings, color: Colors.green,),
+              leading: Icon(
+                Icons.settings,
+                color: Colors.green,
+              ),
             ),
           ),
           InkWell(
             onTap: () {},
             child: ListTile(
               title: Text("About"),
-              leading: Icon(Icons.help, color: Colors.blue,),
+              leading: Icon(
+                Icons.help,
+                color: Colors.blue,
+              ),
             ),
           ),
         ],
